@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-glow-primary: var(--glow-primary);
+  --color-glow-success: var(--glow-success);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ═══ B-dark-pro 主题 Token ═══ */
+:root {
+  /* 背景层级（深色） */
+  --background: oklch(0.21 0.04 260);          /* #0F172A 深蓝黑 */
+  --foreground: oklch(0.97 0.01 250);          /* #F1F5F9 近白 */
+
+  --card: oklch(0.32 0.03 255);                /* #1E293B 深蓝灰 */
+  --card-foreground: oklch(0.97 0.01 250);     /* #F1F5F9 */
+
+  --popover: oklch(0.32 0.03 255);
+  --popover-foreground: oklch(0.97 0.01 250);
+
+  /* 主色：亮蓝 */
+  --primary: oklch(0.62 0.19 255);             /* #3B82F6 */
+  --primary-foreground: oklch(0.99 0 0);       /* #FFFFFF */
+
+  /* 次级区块 */
+  --secondary: oklch(0.38 0.03 255);            /* #263148 */
+  --secondary-foreground: oklch(0.85 0.02 250); /* #CBD5E1 */
+
+  --muted: oklch(0.38 0.03 255);               /* #263148 */
+  --muted-foreground: oklch(0.70 0.03 255);    /* #94A3B8 辅助说明 */
+
+  /* hover / accent */
+  --accent: oklch(0.42 0.03 255);               /* #2D3748 */
+  --accent-foreground: oklch(0.85 0.02 250);
+
+  /* 语义色（深色版，更亮） */
+  --destructive: oklch(0.68 0.19 20);          /* #F87171 */
+  --success: oklch(0.72 0.17 160);             /* #34D399 */
+  --warning: oklch(0.80 0.17 80);              /* #FBBF24 */
+
+  /* 边框 */
+  --border: oklch(0.43 0.02 255);              /* #334155 */
+  --input: oklch(0.43 0.02 255);
+  --ring: oklch(0.62 0.19 255);                /* #3B82F6 */
+
+  /* 图表色 */
+  --chart-1: oklch(0.62 0.19 255);             /* 亮蓝 */
+  --chart-2: oklch(0.72 0.17 160);             /* 亮绿 */
+  --chart-3: oklch(0.80 0.17 80);              /* 亮橙 */
+  --chart-4: oklch(0.68 0.19 20);              /* 亮红 */
+  --chart-5: oklch(0.65 0.18 300);             /* 亮紫 */
+
+  --radius: 0.5rem;                             /* 8px 工具应用圆角 */
+
+  /* Sidebar */
+  --sidebar: oklch(0.21 0.04 260);              /* #0F172A */
+  --sidebar-foreground: oklch(0.70 0.03 255);  /* #94A3B8 */
+  --sidebar-primary: oklch(0.62 0.19 255);     /* #3B82F6 */
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.32 0.03 255);      /* #1E293B */
+  --sidebar-accent-foreground: oklch(0.85 0.02 250);
+  --sidebar-border: oklch(0.32 0.03 255);      /* #1E293B */
+  --sidebar-ring: oklch(0.62 0.19 255);
+
+  /* 大屏发光效果（仅深色主题） */
+  --glow-primary: 0 0 20px rgba(59, 130, 246, 0.25);
+  --glow-success: 0 0 16px rgba(52, 211, 153, 0.20);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ═══ 大屏滚动动画 ═══ */
+@keyframes scroll-name {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.25); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.45); }
+}
+
+@keyframes winner-reveal {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* 隐藏滚动条但保持滚动功能 */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
