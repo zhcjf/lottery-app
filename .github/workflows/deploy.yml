@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      - name: Override npm registry to public
+        run: echo "registry=https://registry.npmjs.org/" > .npmrc
       - run: npm ci
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
